@@ -18,7 +18,7 @@
 
 -include_lib("emqttd/include/emqttd.hrl").
 
--define(APP, emq_web_hook).
+-define(APP, quec_emq_kafka).
 
 -export([load/0, unload/0]).
 
