@@ -1,0 +1,43 @@
+%% wunaozai.msg.kafka.server = 127.0.0.1:9092
+{
+    mapping, 
+    "emq.msg.kafka.server",
+    "emq_plugin_kafka.kafka",
+    [
+	{default, {"127.0.0.1", 9092}},
+	{datatype, [integer, ip, string]}
+    ]
+}.
+
+%% wunaozai.msg.kafka.topic = test
+{
+    mapping,
+    "emq.msg.kafka.topic",
+    "emq_plugin_kafka.kafka",
+    [
+	{default, "emq-to-kafka-plugin"},
+	{datatype, string},
+	hidden
+    ]
+}.
+
+%% translation
+{
+    translation,
+    "emq_plugin_kafka.kafka",
+    fun(Conf) ->
+	    {RHost, RPort} = case cuttlefish:conf_get("emq.msg.kafka.server", Conf) of
+				 {Ip, Port} -> {Ip, Port};
+				 S	    -> case string:tokens(S, ":") of
+						   [Domain]	  -> {Domain, 9092};
+						   [Domain, Port] -> {Domain, list_to_integer(Port)}
+					       end
+			     end,
+	    Topic = cuttlefish:conf_get("emq.msg.kafka.topic", Conf),
+	    [
+	     {host, RHost},
+	     {port, RPort},
+	     {topic, Topic}
+	    ]
+    end
+}.
