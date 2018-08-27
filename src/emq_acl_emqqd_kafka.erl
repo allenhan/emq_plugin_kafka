@@ -9,7 +9,7 @@
 %% ACL callbacks
 -export([init/1, check_acl/2, reload_acl/1, description/0]).
 %%
--record(state, {acl_cmd}).
+%-record(state, {acl_cmd}).
 %%
 %%init(AclCmd) ->
 %%    {ok, #state{acl_cmd = AclCmd}}.

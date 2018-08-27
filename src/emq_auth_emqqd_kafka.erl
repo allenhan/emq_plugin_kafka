@@ -7,11 +7,11 @@
 
 -include_lib("emqttd/include/emqttd.hrl").
 
--export([init/1, check/3, description/0]).
+-export([check/3, description/0]).
 
 -define(UNDEFINED(S), (S =:= undefined)).
 
--record(state, {auth_cmd, super_cmd, hash_type}).
+%-record(state, {auth_cmd, super_cmd, hash_type}).
 
 %%init({AuthCmd, SuperCmd, HashType}) ->
 %%    {ok, #state{auth_cmd = AuthCmd, super_cmd = SuperCmd, hash_type = HashType}}.
