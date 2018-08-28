@@ -34,7 +34,7 @@
 -define(LOG(Level, Format, Args), lager:Level("WebHook: " ++ Format, Args)).
 
 load() ->
-    ekaf_init(application:get_all_env()),
+    %ekaf_init(application:get_all_env()),
     lists:foreach(fun({Hook, Fun, Filter}) ->
         load_(Hook, binary_to_atom(Fun, utf8), Filter, {Filter})
     end, parse_rule(application:get_env(?APP, rules, []))).
