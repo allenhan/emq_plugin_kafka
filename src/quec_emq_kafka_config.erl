@@ -15,7 +15,7 @@
 %%--------------------------------------------------------------------
 -module (quec_emq_kafka_config).
 
--define(APP, emq_web_hook).
+-define(APP, quec_emq_kafka).
 
 -export ([register/0, unregister/0]).
 
