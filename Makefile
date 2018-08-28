@@ -1,5 +1,5 @@
-PROJECT = emq_web_hook
-PROJECT_DESCRIPTION = EMQ Webhook Plugin
+PROJECT = quec_emq_kafka
+PROJECT_DESCRIPTION = EMQ Kafka Plugin
 PROJECT_VERSION = 2.3.11
 
 DEPS = jsx clique ekaf
@@ -27,4 +27,4 @@ include erlang.mk
 app:: rebar.config
 
 app.config::
-	./deps/cuttlefish/cuttlefish -l info -e etc/ -c etc/emq_web_hook.conf -i priv/emq_web_hook.schema -d data
+	./deps/cuttlefish/cuttlefish -l info -e etc/ -c etc/quec_emq_kafka.conf -i priv/quec_emq_kafka.schema -d data
